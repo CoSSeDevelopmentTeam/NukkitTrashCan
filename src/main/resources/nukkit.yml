@@ -1,0 +1,7 @@
+name: TrashCan
+main: net.comorevi.nukkitplugin.TrashCan
+version: 1.0
+load: POSTWORLD
+author: popkechupki
+api: ["1.0.0"]
+description:  ゴミ箱プラグイン
