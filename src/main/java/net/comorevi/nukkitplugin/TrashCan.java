@@ -6,8 +6,10 @@ import cn.nukkit.event.EventHandler;
 import cn.nukkit.event.Listener;
 import cn.nukkit.event.player.PlayerInteractEvent;
 import cn.nukkit.item.Item;
+import cn.nukkit.item.ItemGhastTear;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
+import net.comorevi.cphone.cphone.data.StringsData;
 
 import java.io.File;
 import java.util.LinkedHashMap;
@@ -51,14 +53,14 @@ public class TrashCan extends PluginBase implements Listener {
             }
             player.getOffhandInventory().addItem(offhand);
             player.getInventory().sendArmorContents(player);
+            Item ghastTear = new ItemGhastTear();
+            ghastTear.setCustomName(StringsData.get(player, "cphone_title"));
+            player.getInventory().setItem(0, ghastTear);
             event.setCancelled();
         }
     }
 
     public boolean isTrashCan(Block block) {
-        if (block.getId() == TRASH_CAN_BLOCK_ID) {
-            return true;
-        }
-        return false;
+        return block.getId() == TRASH_CAN_BLOCK_ID;
     }
 }
